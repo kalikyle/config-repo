@@ -1,0 +1,27 @@
+server:
+  port: 8671
+
+spring:
+  application:
+    name: discovery-server
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-register: false
+
+  server:
+    enabled-self-preservation: true
+    renewable-percent-threshold: 0.5
+
+  management:
+    endpoint:
+      web:
+        exposure:
+          include: health, info
+
+  logging:
+    level:
+      root: INFO
+      com.netflix.discover: INFO
+      com.netflix.eureka: INFO

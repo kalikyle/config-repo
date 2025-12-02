@@ -1,0 +1,56 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+      routes:
+        - id: product-service
+          url: lb://product-service
+          predicates:
+            - Path=/api/products/**
+          filters:
+            - AddResponseHeaders=X-Gateway, Activity5
+            - AddResponseSource=X-Gateway, Activity5
+
+        - id: order-service
+          url: lb://order-service
+          predicates:
+            - Path=/api/orders/**
+          filters:
+            - AddResponseHeaders=X-Gateway, Activity5
+            - AddResponseSource=X-Gateway, Activity5
+
+      default-filters:
+        -AddResponseHeaders=X-Env, Activity5
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8671/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,env,configprops
+
+  info:
+    env.enabled: true
+    java.enabled: true
+    os.enabled: true
+    git.mode: full
+
+info:
+  app:
+    name: api-gateway
+    description: Spring Cloud API gateway
+    version: 0.0.1

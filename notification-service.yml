@@ -1,0 +1,28 @@
+server:
+  port: 8083
+
+
+spring:
+  rabbitmq:
+    host: localhost
+    ss port: 5672
+    username: user
+    password: pass
+    virtual-host: /
+
+  eureka:
+    client:
+      Service-url:
+        defaultZone: http://localhost:8671/eureka
+
+  app:
+    rabbit:
+      exchange: orders.exchange
+      queue: orders.notification
+      routing-key: orders.created
+
+management:
+  endpoint:
+    web:
+      exposure:
+        include: health,info

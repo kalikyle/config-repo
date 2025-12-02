@@ -1,0 +1,14 @@
+
+#actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, refresh, env
+
+#common logging
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    com.training: INFO
