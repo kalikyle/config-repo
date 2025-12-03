@@ -14,23 +14,23 @@ spring:
 
       routes:
         - id: product-service
-          url: lb://product-service
+          uri: lb://product-service
           predicates:
             - Path=/api/products/**
           filters:
-            - AddResponseHeaders=X-Gateway, Activity5
-            - AddResponseSource=X-Gateway, Activity5
+            - AddResponseHeader=X-Gateway,Activity5
+            - AddRequestHeader=X-Gateway,Activity5
 
         - id: order-service
-          url: lb://order-service
+          uri: lb://order-service
           predicates:
             - Path=/api/orders/**
           filters:
-            - AddResponseHeaders=X-Gateway, Activity5
-            - AddResponseSource=X-Gateway, Activity5
+            - AddResponseHeader=X-Gateway,Activity5
+            - AddRequestHeader=X-Gateway,Activity5
 
       default-filters:
-        -AddResponseHeaders=X-Env, Activity5
+        - AddResponseHeader=X-Env,Activity5
 
 eureka:
   client:
@@ -42,12 +42,6 @@ management:
     web:
       exposure:
         include: health,info,env,configprops
-
-  info:
-    env.enabled: true
-    java.enabled: true
-    os.enabled: true
-    git.mode: full
 
 info:
   app:
