@@ -18,12 +18,12 @@ spring:
 
 rabbitmq:
   host: localhost
-  ss port: 5672
+  port: 5672
   username: user
   password: pass
 
 product:
-  base-url: http://localhost:8081
+  base-url: http://localhost:8080
 
 management:
  endpoint:
