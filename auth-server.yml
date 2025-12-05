@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/Activity6AuthDb
+    url: jdbc:postgresql://sqlserver:5432/Activity6AuthDb
     username: postgres
     password: root
     driver-class-name: org.postgresql.Driver
