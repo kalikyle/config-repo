@@ -4,7 +4,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/orders
+    url: jdbc:postgresql://sqlserver:5432/orders
     username: postgres
     password: root
     driver-class-name: org.postgresql.Driver
@@ -17,13 +17,13 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
   rabbitmq:
-    host: localhost
+    host: rabbitmq
     port: 5672
     username: user
     password: pass
 
 product:
-  base-url: http://localhost:8080
+  base-url: http://product-service:8081
 
 management:
  endpoint:

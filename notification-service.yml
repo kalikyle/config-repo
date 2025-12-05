@@ -4,8 +4,8 @@ server:
 
 spring:
   rabbitmq:
-    host: localhost
-    ss port: 5672
+    host: rabbitmq
+    port: 5672
     username: user
     password: pass
     virtual-host: /
@@ -13,7 +13,7 @@ spring:
   eureka:
     client:
       Service-url:
-        defaultZone: http://localhost:8671/eureka
+        defaultZone: http://api-gateway:8761/eureka
 
   app:
     rabbit:
