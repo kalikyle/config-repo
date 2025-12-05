@@ -13,7 +13,7 @@ spring:
   eureka:
     client:
       Service-url:
-        defaultZone: http://api-gateway:8761/eureka
+        defaultZone: http://discovery-server:8761/eureka
 
   app:
     rabbit:
