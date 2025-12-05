@@ -10,16 +10,16 @@ spring:
     password: pass
     virtual-host: /
 
-  eureka:
-    client:
-      Service-url:
-        defaultZone: http://discovery-server:8761/eureka
-
   app:
     rabbit:
       exchange: orders.exchange
       queue: orders.notification
       routing-key: orders.created
+
+eureka:
+  client:
+     Service-url:
+      defaultZone: http://discovery-server:8761/eureka
 
 management:
   endpoint:
