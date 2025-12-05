@@ -23,7 +23,7 @@ spring:
     password: pass
 
 product:
-  base-url: product-service:8081
+  base-url: http://product-service:8081
 
 management:
  endpoint:
