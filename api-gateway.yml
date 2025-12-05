@@ -29,6 +29,15 @@ spring:
             - AddResponseHeader=X-Gateway,Activity5
             - AddRequestHeader=X-Gateway,Activity5
 
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/api/notifications/**
+          filters:
+            - AddResponseHeader=X-Gateway,Activity5
+            - AddRequestHeader=X-Gateway,Activity5
+
+
       default-filters:
         - AddResponseHeader=X-Env,Activity5
 
