@@ -55,17 +55,6 @@ spring:
           filters:
             - AddResponseHeader=X-Gateway, Activity5
             - AddRequestHeader=X-Source, Gateway
-            -
-
-        - id: customer-service
-          uri: lb://customer-service
-          predicates:
-            - Path=/api/customers/**
-          # Same reasoning as product-service: don't strip.
-          filters:
-            - AddResponseHeader=X-Gateway, Activity5
-            - AddRequestHeader=X-Source, Gateway
-
 
       # Optional default filter for all routes
       default-filters:
